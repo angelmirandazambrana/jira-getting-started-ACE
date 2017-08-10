@@ -1,0 +1,60 @@
+{
+    "key": "my-add-on",
+    "name": "Ping Pong",
+    "description": "My very first add-on vAMZ",
+    "vendor": {
+        "name": "Angel Miranda",
+        "url": "https://www.atlassian.com/angrynerds"
+    },
+    "baseUrl": "{{localBaseUrl}}",
+    "links": {
+        "self": "{{localBaseUrl}}/atlassian-connect.json",
+        "homepage": "{{localBaseUrl}}/atlassian-connect.json"
+    },
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        "installed": "/installed"
+    },
+    "scopes": [
+        "READ"
+    ],
+    "modules": {
+        "generalPages": [
+            {
+                "key": "hello-world-page-jira",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "Hello World"
+                },
+                "url": "/hello-world",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            },
+            {
+                "key": "hello-world-page-confluence",
+                "location": "system.header/left",
+                "name": {
+                    "value": "Hello World"
+                },
+                "url": "/hello-world",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            },
+            {
+                "key": "Angel-testing-key",
+                "location": "system.user.options/personal",
+                "name": {
+                    "value": "Angel testing value"
+                },
+                "url": "/angel-test",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+        ]
+    }
+}
