@@ -28,22 +28,16 @@ module.exports = function (app, addon) {
         }
     );
 
+    // Add any additional route handlers you need for views or REST resources here...
     app.get('/angel-test', addon.authenticate(), function (req, res) {
             // Rendering a template is easy; the `render()` method takes two params: name of template
             // and a json object to pass the context in
-            var httpClient=addon.httpClient(req);
-            httpClient.get('https://angelmiranda.atlassian.net/rest/api/2/permissions', function(err, res, body) {
-                console.log('API response:', body);
-            });
             res.render('hello-world', {
-                title: 'Angel TEST',
-                //AMquery: JSON.stringify(APIquery),
-                brainiac: 'this is the evil 333'
+                title: 'Angel TEST #3',
+                payload: 'This is the payload fom server'
             });
         }
     );
-    // Add any additional route handlers you need for views or REST resources here...
-
 
     // load any additional files you have in routes and apply those to the app
     {
